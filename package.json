@@ -12,13 +12,20 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.15",
+    "@svgr/webpack": "^8.1.0",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
     "@types/react-router-dom": "^5.3.3",
     "@types/webpack": "^5.28.5",
     "@types/webpack-dev-server": "^4.7.1",
+    "babel-loader": "^9.2.1",
+    "babel-plugin-i18next-extract": "^1.0.0",
     "css-loader": "^6.11.0",
+    "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "sass": "^1.83.0",
@@ -32,8 +39,12 @@
     "webpack-dev-server": "^5.2.0"
   },
   "dependencies": {
+    "i18next": "^24.1.0",
+    "i18next-browser-languagedetector": "^8.0.2",
+    "i18next-http-backend": "^3.0.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-i18next": "^15.2.0",
     "react-router-dom": "^7.0.2"
   }
 }

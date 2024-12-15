@@ -1,0 +1,11 @@
+.theme_switcher {
+  > svg {
+    height: 32px;
+    width: 32px;
+    fill: var(--bg-color);
+
+    > path {
+      stroke: var(--bg-color);
+    }
+  }
+}

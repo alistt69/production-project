@@ -1,0 +1,22 @@
+@forward "consts";
+@forward "normalize";
+@forward "themes/light";
+@forward "themes/dark";
+
+
+.root {
+  font: var(--font-m);
+  background: var(--bg-color);
+  color: var(--primary-color);
+  min-height: 100vh;
+  transition: all .4s ease;
+}
+
+.content-page {
+  display: flex;
+}
+
+.page-wrapper {
+  flex-grow: 1;
+  padding: 20px;
+}

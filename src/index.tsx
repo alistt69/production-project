@@ -1,7 +1,9 @@
 import { createRoot } from "react-dom/client";
-import "./styles/index.scss";
-import App from "./App";
-import ThemeProvider from "./theme/provider";
+import ThemeProvider from "app/providers/theme/ui/provider";
+import { RouterProvider } from "react-router-dom";
+import { router } from "app/providers/router";
+import { Suspense } from "react";
+import "shared/config/i18n";
 
 const root = document.getElementById("root");
 
@@ -9,10 +11,10 @@ if (!root) {
     throw new Error('root not found.');
 }
 
-const container = createRoot(root)
-
-container.render(
-    <ThemeProvider>
-        <App />
-    </ThemeProvider>
-)
+createRoot(root).render(
+    <Suspense fallback={"Loading..."}>
+        <ThemeProvider>
+            <RouterProvider router={router}/>
+        </ThemeProvider>
+    </Suspense>
+);
