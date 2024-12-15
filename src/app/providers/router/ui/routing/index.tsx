@@ -7,7 +7,7 @@ export const router = createBrowserRouter(
     createRoutesFromElements(
         <Route path="/" element={<RootLayout />}>
             {Object.values(routeConfig).map(({element, path}) => (
-                    <Route
+                <Route
                         key={path}
                         path={path}
                         element={

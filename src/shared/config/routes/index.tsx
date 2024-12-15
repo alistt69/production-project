@@ -17,15 +17,15 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.ROOT]: {
         path: RoutePath.root,
         element:
-            <Suspense fallback={'Loading...'}>
-                <Main />
-            </Suspense>
+    <Suspense fallback={'Loading...'}>
+        <Main />
+    </Suspense>
     },
     [AppRoutes.ABOUT]: {
         path: RoutePath.about,
         element:
-            <Suspense fallback={'Loading...'}>
-                <About />
-            </Suspense>
+    <Suspense fallback={'Loading...'}>
+        <About />
+    </Suspense>
     },
 }
