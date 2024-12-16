@@ -4,5 +4,9 @@
   "Main_page": "Главная",
   "toggle": "Переключить",
   "Language": "Гойда",
-  "what is your name": "как тебя зовут"
+  "what is your name": "как тебя зовут",
+  "error_message": "error_message",
+  "Page not found": "Страница не найдена",
+  "Refresh page": "Обновить страницу",
+  "Something went wrong": "Что-то пошло не так"
 }

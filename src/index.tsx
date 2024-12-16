@@ -1,9 +1,8 @@
 import { createRoot } from "react-dom/client";
 import ThemeProvider from "app/providers/theme/ui/provider";
-import { RouterProvider } from "react-router-dom";
-import { router } from "app/providers/router";
-import { Suspense } from "react";
 import "shared/config/i18n";
+import App from "app/App";
+import { ErrorBoundary } from "app/providers/error-boundary";
 
 const root = document.getElementById("root");
 
@@ -12,9 +11,9 @@ if (!root) {
 }
 
 createRoot(root).render(
-    <Suspense fallback={"Loading..."}>
+    <ErrorBoundary>
         <ThemeProvider>
-            <RouterProvider router={router}/>
+            <App />
         </ThemeProvider>
-    </Suspense>
+    </ErrorBoundary>
 );

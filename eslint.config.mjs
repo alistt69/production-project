@@ -18,6 +18,11 @@ export default [
 
         rules: {
             "indent": [2, 4],
+            "react/jsx-filename-extension": [
+                2,
+                { extensions: ["js", "jsx", "ts", "tsx"] }
+            ],
+            "react/react-in-jsx-scope": "off",
         },
     },
     i18next.configs['flat/recommended'],

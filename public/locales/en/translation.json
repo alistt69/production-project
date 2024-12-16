@@ -4,5 +4,9 @@
   "Main_page": "Main page",
   "toggle": "toggle",
   "Language": "language",
-  "what is your name": "what is your name"
+  "what is your name": "what is your name",
+  "error_message": "error_message",
+  "Page not found": "Page not found",
+  "Refresh page": "Refresh page",
+  "Something went wrong": "Something went wrong"
 }
