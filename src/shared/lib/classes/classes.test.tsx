@@ -1,5 +1,6 @@
 import { classNames } from "./index";
 
+
 describe('classes', () => {
 
     test('with only first param', () => {
