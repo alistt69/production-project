@@ -10,7 +10,7 @@
     "unit": "jest --config ./config/jest/jest.config.ts",
     "netstat": "netstat -ano | findstr :3000",
     "storybook": "storybook dev -p 6008 -c ./config/storybook",
-    "build-storybook": "storybook build -c ./config/storybook"
+    "storybook:build": "storybook build -c ./config/storybook"
   },
   "keywords": [],
   "author": "",
