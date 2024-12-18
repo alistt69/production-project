@@ -6,3 +6,11 @@
   background: none;
   outline: none;
 }
+
+.outline {
+  padding: 8px 24px;
+  background: none;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+  border-radius: 8px;
+}
