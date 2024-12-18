@@ -6,7 +6,6 @@
     "start": "webpack serve --env port=3000",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
-    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\"\n --fix",
     "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "unit": "jest --config ./config/jest/jest.config.ts",
     "netstat": "netstat -ano | findstr :3000",
