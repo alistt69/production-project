@@ -2,7 +2,7 @@ import { classNames } from "shared/lib/classes";
 import React, { useState } from "react";
 import { ThemeSwitcher } from "shared/ui/theme-switcher";
 import { LangSwitcher } from "shared/ui/lang-switcher";
-import { AppButton } from "shared/ui/button";
+import { AppButton, AppButtonSize, AppButtonTheme } from "shared/ui/button";
 import classes from "./classes.module.scss";
 import { useTranslation } from "react-i18next";
 
@@ -23,8 +23,11 @@ export const Sidebar = ({className}: SidebarProps) => {
             <AppButton
                 data-testid={"sidebar-toggle"}
                 onClick={onToggle}
+                className={classes.collapse_btn}
+                theme={AppButtonTheme.CLEAR}
             >
-                {t("Toggle")}
+                <div className={classes.top} />
+                <div className={classes.bottom} />
             </AppButton>
             <div className={classes.switchers}>
                 <LangSwitcher className={classes.lang}/>
