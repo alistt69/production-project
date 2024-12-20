@@ -12,6 +12,12 @@ textarea {
   font: inherit;
 }
 
+body {
+  text-rendering: optimizespeed;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
 a,
 button {
   cursor: pointer;
