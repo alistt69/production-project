@@ -16,7 +16,7 @@ export const Navbar = ({className}: NavbarProps) => {
                 <AppLink to={RoutePath.root} theme={AppLinkTheme.SECONDARY}>
                     root
                 </AppLink>
-                |
+                ~~~~~~~
                 <AppLink to={RoutePath.about} theme={AppLinkTheme.SECONDARY}>
                     about
                 </AppLink>
