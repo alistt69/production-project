@@ -17,10 +17,6 @@ const App = () => {
 
     return (
         <div className={classNames("root", {}, [ theme ])}>
-            <button onClick={() => {
-                throw new Error()
-            }}>bug
-            </button>
             <Suspense fallback={<Loader/>}>
                 <RouterProvider router={router}/>
             </Suspense>

@@ -2,9 +2,10 @@ import { classNames } from "shared/lib/classes";
 import React, { useState } from "react";
 import { ThemeSwitcher } from "shared/ui/theme-switcher";
 import { LangSwitcher } from "shared/ui/lang-switcher";
-import { AppButton, AppButtonSize, AppButtonTheme } from "shared/ui/button";
+import { AppButton, AppButtonTheme } from "shared/ui/button";
 import classes from "./classes.module.scss";
 import { useTranslation } from "react-i18next";
+import { Modal } from "shared/ui/modal";
 
 interface SidebarProps {
     className?: string;
@@ -12,14 +13,25 @@ interface SidebarProps {
 
 export const Sidebar = ({className}: SidebarProps) => {
     const [ collapsed, setCollapsed ] = useState(false);
+    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
     const { t } = useTranslation();
 
     const onToggle = () => setCollapsed(prev => !prev);
+
+    const onToggleModal = React.useCallback(() => {
+        setIsAuthModalOpen(prev => !prev)
+    }, [])
 
     return (
         <div data-testid={"sidebar"}
              className={classNames(classes.sidebar, {[classes.collapsed]: collapsed}, [ className ])}
         >
+            <AppButton
+                theme={AppButtonTheme.BACKGROUND_INVERTED}
+                onClick={onToggleModal}
+            >
+                Sign In
+            </AppButton>
             <AppButton
                 data-testid={"sidebar-toggle"}
                 onClick={onToggle}
@@ -33,6 +45,9 @@ export const Sidebar = ({className}: SidebarProps) => {
                 <LangSwitcher className={classes.lang}/>
                 <ThemeSwitcher/>
             </div>
+            <Modal isOpen={isAuthModalOpen} onClose={onToggleModal}>
+                <h1>This is auth form modal</h1>
+            </Modal>
         </div>
     );
 };

@@ -1,22 +1,34 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ThemeSwitcher } from "./index";
 import { ThemeDecorator } from "shared/config/storybook/decorators/theme";
 import { Theme } from "app/providers/theme";
+import { Modal } from "shared/ui/modal/index";
 
 const meta = {
-    title: 'shared/theme-switcher',
-    component: ThemeSwitcher,
+    title: 'shared/modal',
+    component: Modal,
+    parameters: {
+        layout: 'centered',
+    },
     tags: ['autodocs'],
-} satisfies Meta<typeof ThemeSwitcher>;
+} satisfies Meta<typeof Modal>;
 
 export default meta;
-
 type Story = StoryObj<typeof meta>;
 
+
 export const Light: Story = {
-    decorators: [ThemeDecorator(Theme.LIGHT)],
+    args: {
+        isOpen: true,
+        children: <h1>modal</h1>,
+        onClose: () => {},
+    }
 };
 
 export const Dark: Story = {
+    args: {
+        isOpen: true,
+        children: <h1>modal</h1>,
+        onClose: () => {},
+    },
     decorators: [ThemeDecorator(Theme.DARK)]
 };

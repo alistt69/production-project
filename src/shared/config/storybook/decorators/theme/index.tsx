@@ -1,8 +1,10 @@
 import React from "react";
-import { Theme } from "app/providers/theme";
+import { Theme, ThemeProvider } from "app/providers/theme";
 
 export const ThemeDecorator = (theme: Theme) => (Story: React.ComponentType) => (
-    <div className={`root ${theme}`} style={{ width: `100vw`, height: `100vh` }}>
-        <Story />
-    </div>
+    <ThemeProvider initialTheme={theme}>
+        <div className={`root ${theme}`} style={{width: `100vw`, height: `100vh`}}>
+            <Story/>
+        </div>
+    </ThemeProvider>
 );
