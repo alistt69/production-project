@@ -19,6 +19,7 @@ const App = () => {
         <div className={classNames("root", {}, [ theme ])}>
             <Suspense fallback={<Loader/>}>
                 <RouterProvider router={router}/>
+                <div id="portal-root"></div>
             </Suspense>
         </div>
     );

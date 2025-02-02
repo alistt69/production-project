@@ -6,8 +6,15 @@ interface PortalProps {
     element?: HTMLElement;
 }
 
-const Portal: React.FC<PortalProps> = ({ children, element = document.body }) => {
-    return createPortal(children, element);
+const Portal: React.FC<PortalProps> = ({ children, element }) => {
+    const targetElement = element || document.getElementById('portal-root');
+
+    if (!targetElement) {
+        console.error("Target element for portal not found.");
+        return null;
+    }
+
+    return createPortal(children, targetElement);
 };
 
 export default Portal;
