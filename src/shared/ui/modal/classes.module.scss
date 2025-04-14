@@ -4,7 +4,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity .2s ease, background .2s ease;
-  z-index: var(--modal-z);
+  z-index: var(--modal-z-hidden);
 
   .overlay {
     display: flex;
@@ -26,6 +26,7 @@
     opacity: 1;
     pointer-events: auto;
     transform: scale(1);
+    z-index: var(--modal-z);
 
     .overlay {
       .content {
@@ -35,6 +36,10 @@
   }
   
   &.is_closing {
-    background: rgb(255 0 0 / 20%);
+    .overlay {
+      .content {
+        transform: scale(.7);
+      }
+    }
   }
 }

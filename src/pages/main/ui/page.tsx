@@ -1,23 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import { AppButton, AppButtonTheme } from "shared/ui/button";
 import { Modal } from "shared/ui/modal";
+import { useModal } from "shared/ui/modal/hook";
 
 const MainPage = () => {
     const { t } = useTranslation();
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const { isOpen, openModal, closeModal } = useModal();
 
     return (
         <div>
-            <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+            <Modal isOpen={isOpen} onClose={closeModal}>
                 <p>aaa</p>
             </Modal>
             <p>{t('what is your name')}</p>
             {t("Main page")}
             <AppButton
                 theme={AppButtonTheme.BACKGROUND_INVERTED}
-                onClick={() => setIsModalOpen(true)}
+                onClick={openModal}
             >
                 open modal
             </AppButton>

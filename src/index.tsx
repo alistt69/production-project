@@ -3,6 +3,7 @@ import ThemeProvider from "app/providers/theme/ui/provider";
 import "shared/config/i18n";
 import App from "app/App";
 import { ErrorBoundary } from "app/providers/error-boundary";
+import { StoreProvider } from "app/providers/store";
 
 const root = document.getElementById("root");
 
@@ -11,9 +12,11 @@ if (!root) {
 }
 
 createRoot(root).render(
-    <ErrorBoundary>
-        <ThemeProvider>
-            <App />
-        </ThemeProvider>
-    </ErrorBoundary>
+    <StoreProvider>
+        <ErrorBoundary>
+            <ThemeProvider>
+                <App />
+            </ThemeProvider>
+        </ErrorBoundary>
+    </StoreProvider>
 );

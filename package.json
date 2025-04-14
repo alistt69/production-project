@@ -75,6 +75,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
+    "@reduxjs/toolkit": "^2.5.1",
     "@typescript-eslint/eslint-plugin": "^8.18.0",
     "@typescript-eslint/parser": "^8.18.0",
     "i18next": "^24.1.0",
@@ -83,7 +84,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-i18next": "^15.2.0",
-    "react-router-dom": "^7.0.2"
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^6.21.3"
   },
   "eslintConfig": {
     "extends": [

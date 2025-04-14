@@ -6,6 +6,7 @@ import { AppButton, AppButtonTheme } from "shared/ui/button";
 import classes from "./classes.module.scss";
 import { useTranslation } from "react-i18next";
 import { Modal } from "shared/ui/modal";
+import { useModal } from "shared/ui/modal/hook";
 
 interface SidebarProps {
     className?: string;
@@ -13,13 +14,13 @@ interface SidebarProps {
 
 export const Sidebar = ({className}: SidebarProps) => {
     const [ collapsed, setCollapsed ] = useState(false);
-    const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
+    const { isOpen, openModal, closeModal } = useModal();
     const { t } = useTranslation();
 
     const onToggle = () => setCollapsed(prev => !prev);
 
     const onToggleModal = React.useCallback(() => {
-        setIsAuthModalOpen(prev => !prev)
+        openModal();
     }, [])
 
     return (
@@ -45,7 +46,7 @@ export const Sidebar = ({className}: SidebarProps) => {
                 <LangSwitcher className={classes.lang}/>
                 <ThemeSwitcher/>
             </div>
-            <Modal isOpen={isAuthModalOpen} onClose={onToggleModal}>
+            <Modal isOpen={isOpen} onClose={closeModal}>
                 <h1>This is auth form modal</h1>
             </Modal>
         </div>

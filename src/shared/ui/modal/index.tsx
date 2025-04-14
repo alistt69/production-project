@@ -10,18 +10,18 @@ interface ModalProps {
     onClose: () => void;
 }
 
-const ANIMATION_DELAY = 300;
+const ANIMATION_DELAY = 50;
 
 export const Modal: React.FC<ModalProps> = ({ className, children, isOpen, onClose }) => {
     const [isClosing, setIsClosing] = React.useState(false);
     const timerRef = React.useRef(null);
 
     const closeHandler = React.useCallback(() => {
-        setIsClosing(true)
+        setIsClosing(true);
         timerRef.current = setTimeout(() => {
             onClose();
             setIsClosing(false);
-        }, ANIMATION_DELAY)
+        }, ANIMATION_DELAY);
     }, [onClose]);
 
     const mods: Record<string, boolean> = {
@@ -43,14 +43,14 @@ export const Modal: React.FC<ModalProps> = ({ className, children, isOpen, onClo
         }
 
         return () => {
-            clearTimeout(timerRef.current);
+            if (timerRef.current) clearTimeout(timerRef.current);
             window.removeEventListener('keydown', onKeyDown);
         };
     }, [isOpen, onKeyDown]);
 
     return (
         <Portal>
-            <div className={classNames(classes.modal, mods, [ className ])}>
+            <div className={classNames(classes.modal, mods, [className])}>
                 <div className={classes.overlay} onClick={closeHandler}>
                     <div className={classes.content} onClick={onContentClick}>
                         {children}
@@ -60,4 +60,3 @@ export const Modal: React.FC<ModalProps> = ({ className, children, isOpen, onClo
         </Portal>
     );
 };
-
