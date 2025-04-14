@@ -2,9 +2,9 @@
 
 import { AppButton } from "shared/ui/button";
 import { useDispatch, useSelector } from "react-redux";
-import { counterActions } from "entities/couter/model/slice";
+import { counterActions } from "../model/slice";
 import { StateSchema } from "app/providers/store/config/StateSchema";
-import { getCounterValue } from "entities/couter/model/selectors/getCounterValue";
+import { getCounterValue } from "../model/selectors/getCounterValue";
 
 export const Counter = () => {
     const dispatch = useDispatch();
