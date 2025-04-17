@@ -14,9 +14,9 @@ export const Navbar = ({className}: NavbarProps) => {
             <h1>PP</h1>
             <nav>
                 <AppLink to={RoutePath.root} theme={AppLinkTheme.SECONDARY}>
-                    root
+                    main
                 </AppLink>
-                ~~~~~~~
+                -
                 <AppLink to={RoutePath.about} theme={AppLinkTheme.SECONDARY}>
                     about
                 </AppLink>

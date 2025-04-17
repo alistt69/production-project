@@ -7,6 +7,7 @@ import classes from "./classes.module.scss";
 import { useTranslation } from "react-i18next";
 import { Modal } from "shared/ui/modal";
 import { useModal } from "shared/ui/modal/hook";
+import { LoginModal } from "features/auth-by-username";
 
 interface SidebarProps {
     className?: string;
@@ -46,9 +47,7 @@ export const Sidebar = ({className}: SidebarProps) => {
                 <LangSwitcher className={classes.lang}/>
                 <ThemeSwitcher/>
             </div>
-            <Modal isOpen={isOpen} onClose={closeModal}>
-                <h1>This is auth form modal</h1>
-            </Modal>
+            <LoginModal isOpen={isOpen} onClose={closeModal} />
         </div>
     );
 };
