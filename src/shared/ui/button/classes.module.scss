@@ -1,5 +1,11 @@
 .app_button {
   padding: 8px 12px;
+  transition: opacity .4s ease;
+}
+
+.disabled {
+  opacity: .5;
+  cursor: not-allowed;
 }
 
 .clear {

@@ -82,3 +82,11 @@ export const SquareSizeXL: Story = {
         size: AppButtonSize.XL
     }
 };
+
+export const Disabled: Story = {
+    args: {
+        children: 'im disabled:(',
+        theme: AppButtonTheme.BACKGROUND_INVERTED,
+        disabled: true,
+    }
+};

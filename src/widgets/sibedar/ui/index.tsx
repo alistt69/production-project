@@ -8,6 +8,8 @@ import { useTranslation } from "react-i18next";
 import { Modal } from "shared/ui/modal";
 import { useModal } from "shared/ui/modal/hook";
 import { LoginModal } from "features/auth-by-username";
+import { AppLink, AppLinkTheme } from "shared/ui/link";
+import { RoutePath } from "shared/config/routes";
 
 interface SidebarProps {
     className?: string;
@@ -15,25 +17,23 @@ interface SidebarProps {
 
 export const Sidebar = ({className}: SidebarProps) => {
     const [ collapsed, setCollapsed ] = useState(false);
-    const { isOpen, openModal, closeModal } = useModal();
     const { t } = useTranslation();
 
     const onToggle = () => setCollapsed(prev => !prev);
-
-    const onToggleModal = React.useCallback(() => {
-        openModal();
-    }, [])
 
     return (
         <div data-testid={"sidebar"}
              className={classNames(classes.sidebar, {[classes.collapsed]: collapsed}, [ className ])}
         >
-            <AppButton
-                theme={AppButtonTheme.BACKGROUND_INVERTED}
-                onClick={onToggleModal}
-            >
-                Sign In
-            </AppButton>
+            <nav>
+                <AppLink to={RoutePath.root} theme={AppLinkTheme.SECONDARY}>
+                    main
+                </AppLink>
+                -
+                <AppLink to={RoutePath.about} theme={AppLinkTheme.SECONDARY}>
+                    about
+                </AppLink>
+            </nav>
             <AppButton
                 data-testid={"sidebar-toggle"}
                 onClick={onToggle}
@@ -47,7 +47,6 @@ export const Sidebar = ({className}: SidebarProps) => {
                 <LangSwitcher className={classes.lang}/>
                 <ThemeSwitcher/>
             </div>
-            <LoginModal isOpen={isOpen} onClose={closeModal} />
         </div>
     );
 };

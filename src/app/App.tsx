@@ -5,9 +5,16 @@ import { Suspense, useEffect } from "react";
 import { classNames } from "shared/lib/classes";
 import { useTheme } from "app/providers/theme";
 import "./styles/index.scss";
+import { useAppDispatch } from "app/providers/store";
+import { userActions } from "entities/user";
 
 const App = () => {
     const { theme } = useTheme();
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(userActions.initAuthData())
+    }, [dispatch]);
 
     /*useEffect(() => {
         if (Math.random() > 0.5) {

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { ThemeDecorator } from "shared/config/storybook/decorators/theme";
 import { Theme } from "app/providers/theme";
 import { About } from "pages/about";
+import { StoreDecorator } from "shared/config/storybook/decorators/store";
 
 const meta = {
     title: 'pages/about',
