@@ -19,7 +19,7 @@ const compat = new FlatCompat({
 
 export default tsEslint.config(
   {
-    ignores: ['**/dist', '**/node_modules', '**/storybook-static'],
+    ignores: ['**/dist', '**/node_modules', '**/storybook-static', '**/build', '**/json-server'],
   },
   {
     languageOptions: {

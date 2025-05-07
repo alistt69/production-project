@@ -14325,16 +14325,14 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
       Wp = ({ value: t, nested: e = !1, callsById: r }) => {
         let n = fe();
         if (e) return m.createElement('span', { style: { color: n.base } }, '[\u2026]');
-        let o = t
-            .slice(0, 3)
-            .map((u, i) =>
-              m.createElement(nt, {
-                key: `${i}--${JSON.stringify(u)}`,
-                value: u,
-                nested: !0,
-                callsById: r,
-              }),
-            ),
+        let o = t.slice(0, 3).map((u, i) =>
+            m.createElement(nt, {
+              key: `${i}--${JSON.stringify(u)}`,
+              value: u,
+              nested: !0,
+              callsById: r,
+            }),
+          ),
           a = ji(o, m.createElement('span', null, ', '));
         return t.length <= 3
           ? m.createElement('span', { style: { color: n.base } }, '[', a, ']')
