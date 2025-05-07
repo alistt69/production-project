@@ -13,16 +13,18 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
   const { isOpen, openModal, closeModal } = useModal();
-  const dispath = useAppDispatch();
+  const dispatch = useAppDispatch();
   const authData = useAppSelector(getUserAuthData);
 
   const onToggleModal = React.useCallback(() => {
     openModal();
   }, [openModal]);
 
+  console.log(isOpen);
+
   const onLogout = React.useCallback(() => {
-    dispath(userActions.logout());
-  }, [dispath]);
+    dispatch(userActions.logout());
+  }, [dispatch]);
 
   return (
     <div className={classNames(classes.navbar, {}, [className])}>

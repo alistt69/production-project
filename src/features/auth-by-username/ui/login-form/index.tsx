@@ -3,19 +3,32 @@ import { classNames } from 'shared/lib/classes';
 import classes from './classes.module.scss';
 import { AppButton, AppButtonTheme } from 'shared/ui/button';
 import { Input } from 'shared/ui/input';
-import { loginActions } from '../../model/slice';
-import { getLoginState } from '../../model/selectors/getLoginState';
+import { loginActions, loginReducer } from '../../model/slice';
 import { loginByUsername } from 'features/auth-by-username/model/services/loginByUsername';
 import { useAppDispatch, useAppSelector } from 'app/providers/store';
 import { Text, TextTheme } from 'shared/ui/text';
+import { getLoginStateUsername } from '../../model/selectors/getLoginStateUsername';
+import { getLoginStatePassword } from '../../model/selectors/getLoginStatePassword';
+import { getLoginStateLoading } from '../../model/selectors/getLoginStateLoading';
+import { getLoginStateError } from '../../model/selectors/getLoginStateError';
+import { ReducersList, useDynamicReducerLoading } from 'shared/lib/hooks/useDynamicReducerLoading';
 
-interface LoginFormProps {
+export interface LoginFormProps {
   className?: string;
 }
 
-export const LoginForm = React.memo(({ className }: LoginFormProps) => {
+const initialReducers: ReducersList = {
+  loginForm: loginReducer,
+}
+
+const LoginForm = React.memo(({ className }: LoginFormProps) => {
   const dispatch = useAppDispatch();
-  const { username, password, isLoading, error } = useAppSelector(getLoginState);
+  const username = useAppSelector(getLoginStateUsername);
+  const password = useAppSelector(getLoginStatePassword);
+  const isLoading = useAppSelector(getLoginStateLoading);
+  const error = useAppSelector(getLoginStateError);
+
+  useDynamicReducerLoading('loginForm', initialReducers)
 
   const onChangeUsername = React.useCallback(
     (name: string) => {
@@ -31,13 +44,11 @@ export const LoginForm = React.memo(({ className }: LoginFormProps) => {
     [dispatch],
   );
 
-  const onLogin = React.useCallback(
-    (e: React.FormEvent) => {
+  const onLogin = React.useCallback((e: React.FormEvent) => {
       e.preventDefault();
       dispatch(loginByUsername({ username, password }));
-    },
-    [dispatch, username, password],
-  );
+      console.log(username);
+    }, [dispatch, username, password],);
 
   return (
     <form className={classNames(classes.login_form, {}, [className])} onSubmit={onLogin}>
@@ -49,14 +60,14 @@ export const LoginForm = React.memo(({ className }: LoginFormProps) => {
         autofocus
         required
         onChange={onChangeUsername}
-        value={username}
+        value={username || ''}
       />
       <Input
         type={'text'}
         className={classes.input}
         placeholder={'password'}
         onChange={onChangPassword}
-        value={password}
+        value={password || ''}
         required
       />
       {error && <Text text={`Failed to sigh in: ${error}`} theme={TextTheme.ERROR} />}
@@ -73,3 +84,5 @@ export const LoginForm = React.memo(({ className }: LoginFormProps) => {
 });
 
 LoginForm.displayName = 'LoginForm';
+
+export default LoginForm;
