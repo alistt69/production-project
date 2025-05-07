@@ -1,15 +1,14 @@
-@forward "consts";
-@forward "normalize";
-@forward "themes/light";
-@forward "themes/dark";
-
+@forward 'consts';
+@forward 'normalize';
+@forward 'themes/light';
+@forward 'themes/dark';
 
 .root {
   font: var(--font-m);
   background: var(--bg-color);
   color: var(--primary-color);
   min-height: 100vh;
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 
 .content-page {

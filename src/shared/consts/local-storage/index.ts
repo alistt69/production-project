@@ -1,1 +1,1 @@
-export const USER_LOACL_STORAGE_KEY = 'user'
+export const USER_LOACL_STORAGE_KEY = 'user';

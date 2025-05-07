@@ -1,15 +1,15 @@
-import { useTranslation } from "react-i18next";
-import { Counter } from "../../../entities/couter";
+import { useTranslation } from 'react-i18next';
+import { Counter } from '../../../entities/couter';
 
 const AboutPage = () => {
-    const { t } = useTranslation('about');
+  const { t } = useTranslation('about');
 
-    return (
-        <div>
-            {t("About page")}
-            <Counter />
-        </div>
-    );
+  return (
+    <div>
+      {t('About page')}
+      <Counter />
+    </div>
+  );
 };
 
 export default AboutPage;

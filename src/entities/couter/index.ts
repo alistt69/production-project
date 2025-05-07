@@ -1,9 +1,5 @@
-import { counterReducer } from "./model/slice";
-import { Counter } from "./ui";
-import type { ICounterSchema } from "./model/types";
+import { counterReducer } from './model/slice';
+import { Counter } from './ui';
+import type { ICounterSchema } from './model/types';
 
-export {
-    counterReducer,
-    Counter,
-    ICounterSchema
-}
+export { counterReducer, Counter, ICounterSchema };

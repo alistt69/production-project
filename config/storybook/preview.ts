@@ -1,9 +1,9 @@
-import type { Preview } from "@storybook/react";
-import { ThemeDecorator } from "shared/config/storybook/decorators/theme";
-import { StyleDecorator } from "shared/config/storybook/decorators/style";
-import { RouterDecorator } from "shared/config/storybook/decorators/router";
-import { StoreDecorator } from "shared/config/storybook/decorators/store";
-import { Theme } from "app/providers/theme";
+import type { Preview } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/decorators/theme';
+import { StyleDecorator } from 'shared/config/storybook/decorators/style';
+import { RouterDecorator } from 'shared/config/storybook/decorators/router';
+import { StoreDecorator } from 'shared/config/storybook/decorators/store';
+import { Theme } from 'app/providers/theme';
 
 const preview: Preview = {
   parameters: {
@@ -14,13 +14,7 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [
-    StyleDecorator,
-    RouterDecorator,
-    StoreDecorator(),
-    ThemeDecorator(Theme.LIGHT),
-  ],
+  decorators: [StyleDecorator, RouterDecorator, StoreDecorator(), ThemeDecorator(Theme.LIGHT)],
 };
 
 export default preview;
-

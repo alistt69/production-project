@@ -1,1 +1,1 @@
-export { LazyMain as Main } from "./ui/lazy";
+export { LazyMain as Main } from './ui/lazy';

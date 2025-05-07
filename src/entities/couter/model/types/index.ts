@@ -1,3 +1,3 @@
 export interface ICounterSchema {
-    value: number;
+  value: number;
 }

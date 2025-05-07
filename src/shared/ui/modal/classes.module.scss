@@ -3,7 +3,9 @@
   inset: 0;
   opacity: 0;
   pointer-events: none;
-  transition: opacity .2s ease, background .2s ease;
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease;
   z-index: var(--modal-z-hidden);
 
   .overlay {
@@ -16,9 +18,9 @@
       margin: auto;
       padding: 20px;
       border-radius: 16px;
-      transform: scale(.7);
+      transform: scale(0.7);
       background: var(--bg-color);
-      transition: transform .2s ease;
+      transition: transform 0.2s ease;
     }
   }
 
@@ -34,11 +36,11 @@
       }
     }
   }
-  
+
   &.is_closing {
     .overlay {
       .content {
-        transform: scale(.7);
+        transform: scale(0.7);
       }
     }
   }

@@ -1,2 +1,2 @@
-import ErrorBoundary from "./ui";
+import ErrorBoundary from './ui';
 export { ErrorBoundary };

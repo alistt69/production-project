@@ -1,10 +1,10 @@
 .app_button {
   padding: 8px 12px;
-  transition: opacity .4s ease;
+  transition: opacity 0.4s ease;
 }
 
 .disabled {
-  opacity: .5;
+  opacity: 0.5;
   cursor: not-allowed;
 }
 
@@ -55,7 +55,6 @@
     font: var(--font-xl);
   }
 }
-
 
 .size_m {
   font: var(--font-m);
