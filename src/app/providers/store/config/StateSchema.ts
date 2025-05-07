@@ -3,6 +3,10 @@ import { IUserSchema } from '../../../../entities/user';
 import { ILoginSchema } from 'features/auth-by-username';
 import { EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit';
 
+export type DeepPartial<T> = T extends object
+  ? { [P in keyof T]?: DeepPartial<T[P]> }
+  : T;
+
 export interface StateSchema {
   counter: ICounterSchema;
   user: IUserSchema;
