@@ -25,9 +25,13 @@ export const Sidebar = ({ className }: SidebarProps) => {
         <AppLink to={RoutePath.root} theme={AppLinkTheme.SECONDARY}>
           main
         </AppLink>
-        -
+        <hr />
         <AppLink to={RoutePath.about} theme={AppLinkTheme.SECONDARY}>
           about
+        </AppLink>
+        <hr />
+        <AppLink to={RoutePath.profile} theme={AppLinkTheme.SECONDARY}>
+          profile
         </AppLink>
       </nav>
       <AppButton

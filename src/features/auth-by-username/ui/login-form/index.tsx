@@ -15,13 +15,14 @@ import { ReducersList, useDynamicReducerLoading } from 'shared/lib/hooks/useDyna
 
 export interface LoginFormProps {
   className?: string;
+  onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer,
 }
 
-const LoginForm = React.memo(({ className }: LoginFormProps) => {
+const LoginForm = React.memo(({ onSuccess, className }: LoginFormProps) => {
   const dispatch = useAppDispatch();
   const username = useAppSelector(getLoginStateUsername);
   const password = useAppSelector(getLoginStatePassword);
@@ -44,11 +45,13 @@ const LoginForm = React.memo(({ className }: LoginFormProps) => {
     [dispatch],
   );
 
-  const onLogin = React.useCallback((e: React.FormEvent) => {
+  const onLogin = React.useCallback(async (e: React.FormEvent) => {
       e.preventDefault();
-      dispatch(loginByUsername({ username, password }));
-      console.log(username);
-    }, [dispatch, username, password],);
+      const result = await dispatch(loginByUsername({ username, password }));
+      if (result.meta.requestStatus === 'fulfilled') {
+        onSuccess();
+      }
+    }, [dispatch, username, password, onSuccess]);
 
   return (
     <form className={classNames(classes.login_form, {}, [className])} onSubmit={onLogin}>
