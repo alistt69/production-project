@@ -11,7 +11,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export const Navbar = React.memo(({ className }: NavbarProps) => {
   const { isOpen, openModal, closeModal } = useModal();
   const dispatch = useAppDispatch();
   const authData = useAppSelector(getUserAuthData);
@@ -44,4 +44,6 @@ export const Navbar = ({ className }: NavbarProps) => {
       )}
     </div>
   );
-};
+});
+
+Navbar.displayName = 'Navbar';

@@ -1,10 +1,10 @@
 .sidebar {
   position: relative;
   height: calc(100vh - var(--navbar-height));
-  width: var(--sidebar-width-uncollapsed);
+  min-width: var(--sidebar-width-uncollapsed);
   background: var(--inverted-bg-color);
   color: var(--inverted-primary-color);
-  transition: width 0.4s ease;
+  transition: min-width 0.4s ease;
 
   .collapse_btn {
     display: flex;
@@ -59,7 +59,7 @@
 }
 
 .collapsed {
-  width: var(--sidebar-width-collapsed);
+  min-width: var(--sidebar-width-collapsed);
 
   .collapse_btn {
     &:hover {

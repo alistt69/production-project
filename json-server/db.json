@@ -28,7 +28,7 @@
   "profile": {
     "firstname": "Artyom",
     "lastname": "Kachyro",
-    "age": "19",
+    "age": 19,
     "currency": "RUB",
     "city": "Moscow",
     "username": "admin",

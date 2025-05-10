@@ -60,6 +60,7 @@ export default tsEslint.config(
       'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx', '.tsx'] }],
       'react/require-default-props': 'off',
       'react/react-in-jsx-scope': 'off',
+      'react/prop-types': 'off',
       'react/jsx-props-no-spreading': 'off',
       'react/function-component-definition': 'off',
 

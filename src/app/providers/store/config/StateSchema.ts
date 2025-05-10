@@ -1,4 +1,5 @@
 import { ICounterSchema } from '../../../../entities/couter';
+import { IProfileSchema } from '../../../../entities/profile';
 import { IUserSchema } from '../../../../entities/user';
 import { ILoginSchema } from 'features/auth-by-username';
 import { EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit';
@@ -13,6 +14,7 @@ export interface StateSchema {
 
   // async reducers (optional)
   loginForm?: ILoginSchema;
+  profile?: IProfileSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

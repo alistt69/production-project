@@ -4,15 +4,26 @@ import { ThemeSwitcher } from 'shared/ui/theme-switcher';
 import { LangSwitcher } from 'shared/ui/lang-switcher';
 import { AppButton, AppButtonTheme } from 'shared/ui/button';
 import classes from './classes.module.scss';
-import { AppLink, AppLinkTheme } from 'shared/ui/link';
 import { RoutePath } from 'shared/config/routes';
+import SidebarItem from 'widgets/sibedar/ui/sidebar-item';
 
 interface SidebarProps {
   className?: string;
 }
 
-export const Sidebar = ({ className }: SidebarProps) => {
+interface SidebarLink {
+  name: string;
+  path: string;
+}
+
+export const Sidebar = React.memo(({ className }: SidebarProps) => {
   const [collapsed, setCollapsed] = useState(false);
+
+  const sidebarLinksArr: SidebarLink[] = [
+    { name: 'main', path: RoutePath.root },
+    { name: 'about', path: RoutePath.about },
+    { name: 'profile', path: RoutePath.profile },
+  ]
 
   const onToggle = () => setCollapsed((prev) => !prev);
 
@@ -22,17 +33,9 @@ export const Sidebar = ({ className }: SidebarProps) => {
       className={classNames(classes.sidebar, { [classes.collapsed]: collapsed }, [className])}
     >
       <nav>
-        <AppLink to={RoutePath.root} theme={AppLinkTheme.SECONDARY}>
-          main
-        </AppLink>
-        <hr />
-        <AppLink to={RoutePath.about} theme={AppLinkTheme.SECONDARY}>
-          about
-        </AppLink>
-        <hr />
-        <AppLink to={RoutePath.profile} theme={AppLinkTheme.SECONDARY}>
-          profile
-        </AppLink>
+        {sidebarLinksArr.map((link) => (
+          <SidebarItem name={link.name} path={link.path} key={link.path} />
+        ))}
       </nav>
       <AppButton
         data-testid={'sidebar-toggle'}
@@ -49,4 +52,6 @@ export const Sidebar = ({ className }: SidebarProps) => {
       </div>
     </div>
   );
-};
+});
+
+Sidebar.displayName = 'Sidebar';

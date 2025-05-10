@@ -4,12 +4,13 @@ import { Theme, useTheme } from 'app/providers/theme';
 import LightIcon from 'shared/assets/icons/theme-sun.svg';
 import DarkIcon from 'shared/assets/icons/theme-moon.svg';
 import { AppButton, AppButtonTheme } from 'shared/ui/button';
+import React from 'react';
 
 interface ThemeSwitcherProps {
   className?: string;
 }
 
-export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
+export const ThemeSwitcher = React.memo(({ className }: ThemeSwitcherProps) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
@@ -25,4 +26,6 @@ export const ThemeSwitcher = ({ className }: ThemeSwitcherProps) => {
       )}
     </AppButton>
   );
-};
+});
+
+ThemeSwitcher.displayName = 'ThemeSwitcher';

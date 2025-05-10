@@ -13,7 +13,7 @@ interface AppLinkProps extends NavLinkProps {
   theme?: AppLinkTheme;
 }
 
-export const AppLink: React.FC<AppLinkProps> = (props) => {
+export const AppLink: React.FC<AppLinkProps> = React.memo((props) => {
   const { to, className, children, theme = AppLinkTheme.PRIMARY, ...otherProps } = props;
 
   return (
@@ -25,4 +25,6 @@ export const AppLink: React.FC<AppLinkProps> = (props) => {
       {children}
     </NavLink>
   );
-};
+});
+
+AppLink.displayName = 'AppLink';

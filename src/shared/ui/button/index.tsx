@@ -23,7 +23,7 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 }
 
-export const AppButton: React.FC<AppButtonProps> = (props) => {
+export const AppButton: React.FC<AppButtonProps> = React.memo((props) => {
   const {
     className,
     children,
@@ -51,4 +51,6 @@ export const AppButton: React.FC<AppButtonProps> = (props) => {
       {children}
     </button>
   );
-};
+});
+
+AppButton.displayName = 'AppButton';
