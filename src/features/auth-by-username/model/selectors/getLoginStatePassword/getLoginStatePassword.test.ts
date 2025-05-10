@@ -1,4 +1,4 @@
-import { DeepPartial, StateSchema } from 'app/providers/store/config/StateSchema';
+import { DeepPartial, StateSchema } from 'app/providers/store';
 import { getLoginStatePassword } from './index';
 
 describe('getLoginStatePassword.test', () => {

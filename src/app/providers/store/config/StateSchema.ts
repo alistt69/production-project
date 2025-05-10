@@ -3,6 +3,9 @@ import { IProfileSchema } from '../../../../entities/profile';
 import { IUserSchema } from '../../../../entities/user';
 import { ILoginSchema } from 'features/auth-by-username';
 import { EnhancedStore, Reducer, ReducersMapObject, UnknownAction } from '@reduxjs/toolkit';
+import AxiosInstance = Axios.AxiosInstance;
+import type { To } from '@remix-run/router';
+import type { NavigateOptions } from 'react-router/dist/lib/context';
 
 export type DeepPartial<T> = T extends object
   ? { [P in keyof T]?: DeepPartial<T[P]> }
@@ -28,4 +31,14 @@ export interface ReducerManager {
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
   reducerManager: ReducerManager;
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance;
+  navigate: (to: To, options?: NavigateOptions) => void;
+}
+
+export interface ThunkConfig<T> {
+  rejectValue: T,
+  extra: ThunkExtraArg,
 }

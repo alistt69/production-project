@@ -4,10 +4,22 @@ import { routeConfig } from 'shared/config/routes';
 import { ErrorPage } from 'pages/error';
 import { Suspense } from 'react';
 import { Loader } from 'shared/ui/loader';
+import App from 'app/App';
+import { WithProviders } from 'app/providers/with-providers';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<RootLayout />} errorElement={<ErrorPage />}>
+    <Route
+      path="/"
+      element={
+        <WithProviders>
+          <App>
+            <RootLayout />
+          </App>
+        </WithProviders>
+      }
+      errorElement={<ErrorPage />}
+    >
       {Object.values(routeConfig).map(({ element, path }) => (
         <Route
           key={path}
@@ -19,6 +31,6 @@ export const router = createBrowserRouter(
           }
         />
       ))}
-    </Route>,
-  ),
+    </Route>
+  )
 );

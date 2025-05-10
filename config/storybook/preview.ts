@@ -1,11 +1,16 @@
-import type { Preview } from '@storybook/react';
-import { ThemeDecorator } from 'shared/config/storybook/decorators/theme';
-import { StyleDecorator } from 'shared/config/storybook/decorators/style';
-import { RouterDecorator } from 'shared/config/storybook/decorators/router';
-import { StoreDecorator } from 'shared/config/storybook/decorators/store';
-import { Theme } from 'app/providers/theme';
+// .storybook/preview.ts
+import { StyleDecorator } from '../../src/shared/config/storybook/decorators/style';
+import { StoreDecorator } from '../../src/shared/config/storybook/decorators/store';
+import { ThemeDecorator } from '../../src/shared/config/storybook/decorators/theme';
+import { Theme } from '../../src/app/providers/theme';
+import { fn } from '@storybook/test';
 
-const preview: Preview = {
+const preview = {
+  decorators: [
+    StyleDecorator,
+    StoreDecorator(),
+    ThemeDecorator(Theme.LIGHT),
+  ],
   parameters: {
     controls: {
       matchers: {
@@ -14,7 +19,13 @@ const preview: Preview = {
       },
     },
   },
-  decorators: [StyleDecorator, RouterDecorator, StoreDecorator(), ThemeDecorator(Theme.LIGHT)],
+  argTypes: {
+    onClick: { action: 'clicked' },
+    onChange: { action: 'changed' },
+  },
+  args: {
+    onClick: fn(),
+  },
 };
 
 export default preview;

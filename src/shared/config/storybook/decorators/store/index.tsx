@@ -1,19 +1,29 @@
-import React from 'react';
-import { StateSchema, StoreProvider } from 'app/providers/store';
+import { DeepPartial, StateSchema, StoreProvider } from 'app/providers/store';
 import { ReducersMapObject } from '@reduxjs/toolkit';
+import { Decorator } from '@storybook/react';
+import { BrowserRouter } from 'react-router-dom';
 import { loginReducer } from 'features/auth-by-username/model/slice';
-import { DeepPartial } from 'app/providers/store/config/StateSchema';
 
 const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
   loginForm: loginReducer,
-}
+};
 
-export const StoreDecorator = (state: DeepPartial<StateSchema>, asyncReducer: DeepPartial<ReducersMapObject<StateSchema>>) => {
-  return function StoreWrapper(Story: React.ComponentType) {
+export const StoreDecorator = (
+  state?: DeepPartial<StateSchema>,
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>
+): Decorator => {
+  const decorator: Decorator = (Story, context) => {
     return (
-      <StoreProvider initialState={state} asyncReducer={{ ...defaultAsyncReducers, ...asyncReducer }}>
-        <Story />
-      </StoreProvider>
+      <BrowserRouter>
+        <StoreProvider
+          initialState={state}
+          asyncReducer={{ ...defaultAsyncReducers, ...asyncReducers }}
+        >
+          <Story {...context} />
+        </StoreProvider>
+      </BrowserRouter>
     );
   };
+
+  return decorator;
 };
