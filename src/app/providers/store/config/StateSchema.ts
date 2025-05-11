@@ -14,17 +14,18 @@ export type DeepPartial<T> = T extends object
 export interface StateSchema {
   counter: ICounterSchema;
   user: IUserSchema;
-
-  // async reducers (optional)
-  loginForm?: ILoginSchema;
-  profile?: IProfileSchema;
+  // async
+  loginForm: ILoginSchema | undefined;
+  profile: IProfileSchema | undefined;
 }
+
+export type MountedReducers = DeepPartial<Record<StateSchemaKey, boolean>>;
 
 export type StateSchemaKey = keyof StateSchema;
 
 export interface ReducerManager {
   getReducerMap: () => ReducersMapObject<StateSchema>;
-  reduce: (state: StateSchema, action: UnknownAction) => StateSchema;
+  reduce: (state: StateSchema | undefined, action: UnknownAction) => StateSchema;
   add: (key: StateSchemaKey, reducer: Reducer) => void;
   remove: (key: StateSchemaKey) => void;
 }
@@ -35,7 +36,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
 
 export interface ThunkExtraArg {
   api: AxiosInstance;
-  navigate: (to: To, options?: NavigateOptions) => void;
+  navigate?: (to: To, options?: NavigateOptions) => void;
 }
 
 export interface ThunkConfig<T> {

@@ -1,16 +1,24 @@
 // import classes from './classes.module.scss';
-import { Text } from 'shared/ui/text';
 import { ReducersList, useDynamicReducerLoading } from 'shared/lib/hooks/useDynamicReducerLoading';
-import { profileReducer } from '../../../entities/profile';
+import { fetchProfileData, ProfileCard, profileReducer } from '../../../entities/profile';
+import { useEffect } from 'react';
+import { useAppDispatch } from 'app/providers/store';
 
 const initialReducers: ReducersList = {
     profile: profileReducer,
 }
 
 const ProfilePage = () => {
-    useDynamicReducerLoading('profile', initialReducers)
+    useDynamicReducerLoading('profile', initialReducers);
+    const dispatch = useAppDispatch();
+
+    useEffect(() => {
+        dispatch(fetchProfileData());
+    }, [dispatch]);
     return (
-        <Text text={"profile"} />
+        <div>
+            <ProfileCard />
+        </div>
     );
 };
 

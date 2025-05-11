@@ -27,14 +27,14 @@ export const AppButton: React.FC<AppButtonProps> = React.memo((props) => {
   const {
     className,
     children,
-    theme,
+    theme = AppButtonTheme.BACKGROUND,
     square,
     disabled,
     size = AppButtonSize.M,
     ...otherProps
   } = props;
 
-  const mods: Record<string, boolean> = {
+  const mods: Record<string, boolean | undefined> = {
     [classes[theme]]: true,
     [classes[size]]: true,
     [classes.square]: square,

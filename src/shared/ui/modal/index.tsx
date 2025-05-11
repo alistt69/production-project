@@ -16,7 +16,7 @@ const ANIMATION_DELAY = 50;
 export const Modal: React.FC<ModalProps> = ({ className, children, isOpen, onClose, lazy }) => {
   const [isClosing, setIsClosing] = React.useState(false);
   const [isMounted, setIsMounted] = React.useState(false);
-  const timerRef = React.useRef(null);
+  const timerRef = React.useRef<NodeJS.Timeout | null>(null);
 
   const closeHandler = React.useCallback(() => {
     setIsClosing(true);

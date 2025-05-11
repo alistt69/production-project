@@ -1,6 +1,6 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore, ReducersMapObject, ThunkMiddleware, Tuple, UnknownAction } from '@reduxjs/toolkit';
 import { userReducer } from '../../../../entities/user';
-import { StateSchema } from './StateSchema';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { counterReducer } from '../../../../entities/couter';
 import { createReducerManager } from 'app/providers/store/config/reducerManager';
 import { $api } from 'shared/api/api';
@@ -12,6 +12,8 @@ export function createReduxStore(
   asyncReducer?: ReducersMapObject<StateSchema>,
   navigate?: (to: To, options?: NavigateOptions) => void,
 ) {
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-expect-error
   const rootReducers: ReducersMapObject<StateSchema> = {
     ...asyncReducer,
     counter: counterReducer,
@@ -20,18 +22,21 @@ export function createReduxStore(
 
   const reducerManager = createReducerManager(rootReducers);
 
-  const store = configureStore<StateSchema>({
-    reducer: reducerManager.reduce,
+  const store = configureStore({
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
+    reducer: reducerManager.reduce as ReducersMapObject<StateSchema>,
     devTools: true,
     preloadedState: initialState,
-    middleware: getDefaultMiddleware => getDefaultMiddleware({
-      thunk: {
-        extraArgument: {
-          api: $api,
-          navigate,
-        }
-      }
-    }),
+    middleware: (getDefaultMiddleware) =>
+      getDefaultMiddleware({
+        thunk: {
+          extraArgument: {
+            api: $api,
+            navigate,
+          },
+        },
+      }) as Tuple<[ThunkMiddleware<StateSchema, UnknownAction, ThunkExtraArg>]>,
   });
 
   // eslint-disable-next-line
