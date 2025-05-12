@@ -23,7 +23,7 @@ export const Sidebar = React.memo(({ className }: SidebarProps) => {
     { name: 'main', path: RoutePath.root },
     { name: 'about', path: RoutePath.about },
     { name: 'profile', path: RoutePath.profile },
-  ]
+  ];
 
   const onToggle = () => setCollapsed((prev) => !prev);
 

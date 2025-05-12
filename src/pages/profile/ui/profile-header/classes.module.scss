@@ -1,0 +1,10 @@
+.profile_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 12px 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  background: var(--inverted-bg-color);
+}

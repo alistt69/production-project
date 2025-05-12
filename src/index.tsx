@@ -9,6 +9,4 @@ if (!root) {
   throw new Error('root not found.');
 }
 
-createRoot(root).render(
-  <RouterProvider router={router} />
-);
+createRoot(root).render(<RouterProvider router={router} />);

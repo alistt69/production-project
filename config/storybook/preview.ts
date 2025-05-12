@@ -6,11 +6,7 @@ import { Theme } from '../../src/app/providers/theme';
 import { fn } from '@storybook/test';
 
 const preview = {
-  decorators: [
-    StyleDecorator,
-    StoreDecorator(),
-    ThemeDecorator(Theme.LIGHT),
-  ],
+  decorators: [StyleDecorator, StoreDecorator(), ThemeDecorator(Theme.LIGHT)],
   parameters: {
     controls: {
       matchers: {

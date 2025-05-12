@@ -20,7 +20,7 @@ export interface LoginFormProps {
 
 const initialReducers: ReducersList = {
   loginForm: loginReducer,
-}
+};
 
 const LoginForm = React.memo(({ onSuccess, className }: LoginFormProps) => {
   const dispatch = useAppDispatch();
@@ -29,7 +29,7 @@ const LoginForm = React.memo(({ onSuccess, className }: LoginFormProps) => {
   const isLoading = useAppSelector(getLoginStateLoading);
   const error = useAppSelector(getLoginStateError);
 
-  useDynamicReducerLoading('loginForm', initialReducers)
+  useDynamicReducerLoading('loginForm', initialReducers);
 
   const onChangeUsername = React.useCallback(
     (name: string) => {
@@ -45,13 +45,16 @@ const LoginForm = React.memo(({ onSuccess, className }: LoginFormProps) => {
     [dispatch],
   );
 
-  const onLogin = React.useCallback(async (e: React.FormEvent) => {
+  const onLogin = React.useCallback(
+    async (e: React.FormEvent) => {
       e.preventDefault();
       const result = await dispatch(loginByUsername({ username, password }));
       if (result.meta.requestStatus === 'fulfilled') {
         onSuccess();
       }
-    }, [dispatch, username, password, onSuccess]);
+    },
+    [dispatch, username, password, onSuccess],
+  );
 
   return (
     <form className={classNames(classes.login_form, {}, [className])} onSubmit={onLogin}>

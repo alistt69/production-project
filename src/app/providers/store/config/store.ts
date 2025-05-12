@@ -1,4 +1,10 @@
-import { configureStore, ReducersMapObject, ThunkMiddleware, Tuple, UnknownAction } from '@reduxjs/toolkit';
+import {
+  configureStore,
+  ReducersMapObject,
+  ThunkMiddleware,
+  Tuple,
+  UnknownAction,
+} from '@reduxjs/toolkit';
 import { userReducer } from '../../../../entities/user';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 import { counterReducer } from '../../../../entities/couter';

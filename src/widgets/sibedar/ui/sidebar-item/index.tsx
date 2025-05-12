@@ -8,11 +8,11 @@ interface SidebarItemProps {
 }
 
 const SidebarItem: React.FC<SidebarItemProps> = React.memo(({ name, path }) => {
-    return (
-        <AppLink to={path} theme={AppLinkTheme.SECONDARY} className={classes.link}>
-          {name}
-        </AppLink>
-    );
+  return (
+    <AppLink to={path} theme={AppLinkTheme.SECONDARY} className={classes.link}>
+      {name}
+    </AppLink>
+  );
 });
 
 SidebarItem.displayName = 'SidebarItem';

@@ -14,9 +14,7 @@ export const WithProviders: React.FC<WithProvidersProps> = ({ children }) => {
     <Suspense fallback={<Loader />}>
       <StoreProvider>
         <ErrorBoundary>
-          <ThemeProvider>
-            {children}
-          </ThemeProvider>
+          <ThemeProvider>{children}</ThemeProvider>
         </ErrorBoundary>
       </StoreProvider>
     </Suspense>

@@ -3,4 +3,8 @@
   background: transparent;
   border-radius: 8px;
   border: 2px solid var(--inverted-primary-color);
+
+  &.readonly {
+    opacity: .5;
+  }
 }

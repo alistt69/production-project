@@ -29,8 +29,8 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   },
   [AppRoutes.PROFILE]: {
     path: RoutePath.profile,
-    element: <Profile />
-  }
+    element: <Profile />,
+  },
   // [AppRoutes.ERROR]: {
   //     path: RoutePath.error,
   //     element: <ErrorPage />

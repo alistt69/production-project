@@ -5,7 +5,7 @@ import { Reducer } from '@reduxjs/toolkit';
 
 export type ReducersList = {
   [name in StateSchemaKey]?: Reducer;
-}
+};
 
 export const useDynamicReducerLoading = (
   key: StateSchemaKey,
@@ -15,9 +15,12 @@ export const useDynamicReducerLoading = (
   const dispatch = useAppDispatch();
   const store = useStore() as ReduxStoreWithManager;
 
-  const isStateSchemaKey = React.useCallback((key: string): key is StateSchemaKey => {
-    return Object.keys(reducers).includes(key);
-  }, [reducers]);
+  const isStateSchemaKey = React.useCallback(
+    (key: string): key is StateSchemaKey => {
+      return Object.keys(reducers).includes(key);
+    },
+    [reducers],
+  );
 
   React.useEffect(() => {
     Object.entries(reducers).forEach(([reducerKey, reducer]) => {

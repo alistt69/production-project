@@ -7,9 +7,7 @@ import AxiosInstance = Axios.AxiosInstance;
 import type { To } from '@remix-run/router';
 import type { NavigateOptions } from 'react-router/dist/lib/context';
 
-export type DeepPartial<T> = T extends object
-  ? { [P in keyof T]?: DeepPartial<T[P]> }
-  : T;
+export type DeepPartial<T> = T extends object ? { [P in keyof T]?: DeepPartial<T[P]> } : T;
 
 export interface StateSchema {
   counter: ICounterSchema;
@@ -40,6 +38,6 @@ export interface ThunkExtraArg {
 }
 
 export interface ThunkConfig<T> {
-  rejectValue: T,
-  extra: ThunkExtraArg,
+  rejectValue: T;
+  extra: ThunkExtraArg;
 }
