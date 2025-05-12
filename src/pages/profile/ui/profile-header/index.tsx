@@ -3,7 +3,7 @@ import classes from './classes.module.scss';
 import { Text } from 'shared/ui/text';
 import { AppButton, AppButtonTheme } from 'shared/ui/button';
 import { useAppDispatch, useAppSelector } from 'app/providers/store';
-import { getProfileReadOnly, profileActions } from 'entities/profile';
+import { getProfileReadOnly, profileActions } from '../../../../entities/profile';
 import { useCallback } from 'react';
 
 interface ProfileHeaderProps {
