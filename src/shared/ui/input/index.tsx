@@ -10,7 +10,7 @@ type HTMLInputProps = Omit<
 interface InputProps extends HTMLInputProps {
   className?: string;
   autofocus?: boolean;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   readOnly?: boolean;
 }
@@ -41,13 +41,17 @@ export const Input = React.memo((props: InputProps) => {
   return (
     <input
       type={type}
-      value={value}
       ref={inputRef}
+      value={value}
       onChange={onChangeHandler}
       readOnly={readOnly}
-      className={classNames(classes.input, {
-        [classes.readonly]: readOnly,
-      }, [className])}
+      className={classNames(
+        classes.input,
+        {
+          [classes.readonly]: readOnly,
+        },
+        [className],
+      )}
       {...otherProps}
     />
   );

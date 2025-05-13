@@ -38,7 +38,7 @@ const LoginForm = React.memo(({ onSuccess, className }: LoginFormProps) => {
     [dispatch],
   );
 
-  const onChangPassword = React.useCallback(
+  const onChangePassword = React.useCallback(
     (password: string) => {
       dispatch(loginActions.setPassword(password));
     },
@@ -72,7 +72,7 @@ const LoginForm = React.memo(({ onSuccess, className }: LoginFormProps) => {
         type={'text'}
         className={classes.input}
         placeholder={'password'}
-        onChange={onChangPassword}
+        onChange={onChangePassword}
         value={password || ''}
         required
       />
