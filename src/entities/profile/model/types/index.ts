@@ -1,5 +1,5 @@
-import { ECurrency } from 'entities/currency/model/types';
-import { ECountry } from 'entities/country/model/types';
+import { ECurrency } from '../../../currency';
+import { ECountry } from '../../../country';
 
 export interface IProfile {
   firstname?: string;

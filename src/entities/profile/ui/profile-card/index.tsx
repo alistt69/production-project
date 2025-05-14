@@ -3,14 +3,14 @@ import classes from './classes.module.scss';
 import { Text, TextTheme } from 'shared/ui/text';
 import { Input } from 'shared/ui/input';
 import { Loader } from 'shared/ui/loader';
-import { IProfile } from 'entities/profile';
+import { IProfile } from '../../../profile';
 import { Avatar } from 'shared/ui/avatar';
 
-import { ECurrency } from 'entities/currency/model/types';
-import { CurrencySelect } from 'entities/currency';
+import { ECurrency } from '../../../currency/model/types';
+import { CurrencySelect } from '../../../currency';
 
-import { ECountry } from 'entities/country/model/types';
-import { CountrySelect } from 'entities/country';
+import { ECountry } from '../../../country/model/types';
+import { CountrySelect } from '../../../country';
 
 interface ProfileCardProps {
   className?: string;

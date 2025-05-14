@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAppDispatch } from 'app/providers/store';
-import { userActions } from 'entities/user';
+import { userActions } from '../entities/user';
 import { classNames } from 'shared/lib/classes';
 import { useTheme } from 'app/providers/theme';
 import './styles/index.scss';

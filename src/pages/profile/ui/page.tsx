@@ -12,8 +12,8 @@ import {
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/store';
 import { ProfileHeader } from './profile-header';
-import { ECurrency } from 'entities/currency';
-import { ECountry } from 'entities/country';
+import { ECurrency } from '../../../entities/currency';
+import { ECountry } from '../../../entities/country';
 
 const initialReducers: ReducersList = {
   profile: profileReducer,
