@@ -4,6 +4,13 @@ import { Text, TextTheme } from 'shared/ui/text';
 import { Input } from 'shared/ui/input';
 import { Loader } from 'shared/ui/loader';
 import { IProfile } from 'entities/profile';
+import { Avatar } from 'shared/ui/avatar';
+
+import { ECurrency } from 'entities/currency/model/types';
+import { CurrencySelect } from 'entities/currency';
+
+import { ECountry } from 'entities/country/model/types';
+import { CountrySelect } from 'entities/country';
 
 interface ProfileCardProps {
   className?: string;
@@ -11,10 +18,14 @@ interface ProfileCardProps {
   error: string | undefined;
   isLoading: boolean | undefined;
   readonly: boolean | undefined;
-  onChangeFirstname: (value: string) => void;
-  onChangeLastname: (value: string) => void;
-  onChangeAge: (value: string) => void;
-  onChangeCity: (value: string) => void;
+  onChangeFirstname?: (value: string) => void;
+  onChangeLastname?: (value: string) => void;
+  onChangeAge?: (value: string) => void;
+  onChangeCity?: (value: string) => void;
+  onChangeAvatar?: (value: string) => void;
+  onChangeUsername?: (value: string) => void;
+  onChangeCurrency?: (currency: ECurrency) => void;
+  onChangeCountry?: (country: ECountry) => void;
 }
 
 export const ProfileCard = ({
@@ -27,7 +38,12 @@ export const ProfileCard = ({
   onChangeFirstname,
   onChangeAge,
   onChangeCity,
+  onChangeAvatar,
+  onChangeUsername,
+  onChangeCurrency,
+  onChangeCountry,
 }: ProfileCardProps) => {
+
   if (isLoading) {
     return <Loader />;
   }
@@ -39,7 +55,10 @@ export const ProfileCard = ({
   return (
     <div className={classNames(classes.profileCard, {}, [className])}>
       <div className={classes.card_wrapper}>
-        <Text title={`Profile for: ${data?.firstname} ${data?.lastname}`} />
+        <Text title={'Profile'} />
+        {data?.avatar && (
+          <Avatar src={data?.avatar} />
+        )}
         <Input
           value={data?.firstname || ''}
           placeholder={'Your firstname'}
@@ -63,6 +82,28 @@ export const ProfileCard = ({
           placeholder={'Your city'}
           readOnly={readonly}
           onChange={onChangeCity}
+        />
+        <Input
+          value={data?.avatar || ''}
+          placeholder={'Your avatar url'}
+          readOnly={readonly}
+          onChange={onChangeAvatar}
+        />
+        <Input
+          value={data?.username || ''}
+          placeholder={'Your username'}
+          readOnly={readonly}
+          onChange={onChangeUsername}
+        />
+        <CurrencySelect
+          value={data?.currency}
+          onChange={onChangeCurrency}
+          readOnly={readonly}
+        />
+        <CountrySelect
+          value={data?.country}
+          onChange={onChangeCountry}
+          readOnly={readonly}
         />
       </div>
     </div>

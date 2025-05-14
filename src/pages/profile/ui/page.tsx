@@ -12,6 +12,8 @@ import {
 import React, { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from 'app/providers/store';
 import { ProfileHeader } from './profile-header';
+import { ECurrency } from 'entities/currency';
+import { ECountry } from 'entities/country';
 
 const initialReducers: ReducersList = {
   profile: profileReducer,
@@ -58,6 +60,34 @@ const ProfilePage = () => {
     [dispatch],
   );
 
+  const onChangeUsername = React.useCallback(
+    (value: string) => {
+      dispatch(profileActions.updateProfile({ username: value }));
+    },
+    [dispatch],
+  );
+
+  const onChangeAvatar = React.useCallback(
+    (value: string) => {
+      dispatch(profileActions.updateProfile({ avatar: value }));
+    },
+    [dispatch],
+  );
+
+  const onChangeCurrency = React.useCallback(
+    (currency: ECurrency) => {
+      dispatch(profileActions.updateProfile({ currency }));
+    },
+    [dispatch],
+  );
+
+  const onChangeCountry = React.useCallback(
+    (country: ECountry) => {
+      dispatch(profileActions.updateProfile({ country }));
+    },
+    [dispatch],
+  );
+
   return (
     <div>
       <ProfileHeader />
@@ -70,6 +100,10 @@ const ProfilePage = () => {
         onChangeLastname={onChangeLastname}
         onChangeAge={onChangeAge}
         onChangeCity={onChangeCity}
+        onChangeAvatar={onChangeAvatar}
+        onChangeUsername={onChangeUsername}
+        onChangeCurrency={onChangeCurrency}
+        onChangeCountry={onChangeCountry}
       />
     </div>
   );

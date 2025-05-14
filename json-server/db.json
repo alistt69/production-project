@@ -29,9 +29,10 @@
     "firstname": "Artyom",
     "lastname": "listoff",
     "age": 19,
-    "currency": "RUB",
+    "currency": "TON",
     "city": "NewMoscow",
-    "username": "admin",
-    "avatar": "https://yt3.googleusercontent.com/9rHb2sgmQPwNPdJOrLH4m_bht5-4ykss1dRQtZDuj4ptMND4SGLyuQIIy9m4cUW0U0AOLiGfFA=s160-c-k-c0x00ffffff-no-rj"
+    "username": "adminq",
+    "avatar": "https://camo.githubusercontent.com/65ef2a5e979b229ea355d6ac2b9b7f8fb0d7e66e5516507971a8a322b5056f09/68747470733a2f2f63646e322e69636f6e66696e6465722e636f6d2f646174612f69636f6e732f64657369676e65722d736b696c6c732f3132382f636f64652d70726f6772616d6d696e672d6a6176617363726970742d736f6674776172652d646576656c6f702d636f6d6d616e642d6c616e67756167652d343039362e706e67",
+    "country": "USA"
   }
 }

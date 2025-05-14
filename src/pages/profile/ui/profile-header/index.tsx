@@ -29,7 +29,7 @@ export const ProfileHeader = ({ className }: ProfileHeaderProps) => {
 
   return (
     <div className={classNames(classes.profile_header, {}, [className])}>
-      <Text text={'Profile page'} />
+      <Text title={'Profile page'} />
       {readOnly ? (
         <AppButton theme={AppButtonTheme.OUTLINE} onClick={handleEdit}>
           <Text text={'Edit data'} />

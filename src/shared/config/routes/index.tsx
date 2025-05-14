@@ -4,6 +4,10 @@ import { About } from 'pages/about';
 import { Profile } from 'pages/profile';
 //import { ErrorPage } from "pages/error";
 
+type AppRoutesProps = RouteProps & {
+  authOnly?: boolean;
+}
+
 export enum AppRoutes {
   ROOT = 'root',
   ABOUT = 'about',
@@ -18,7 +22,7 @@ export const RoutePath: Record<AppRoutes, string> = {
   //[AppRoutes.ERROR]: '*',
 };
 
-export const routeConfig: Record<AppRoutes, RouteProps> = {
+export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   [AppRoutes.ROOT]: {
     path: RoutePath.root,
     element: <Main />,
@@ -30,6 +34,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.PROFILE]: {
     path: RoutePath.profile,
     element: <Profile />,
+    authOnly: true,
   },
   // [AppRoutes.ERROR]: {
   //     path: RoutePath.error,

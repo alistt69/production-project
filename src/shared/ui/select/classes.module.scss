@@ -1,0 +1,23 @@
+.select_wrapper {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+
+  .select {
+    background: none;
+    outline: none;
+    color: var(--primary-color);
+    padding: 2px 12px 2px 2px;
+    border: 2px solid var(--inverted-primary-color);
+    border-radius: 6px;
+
+    .option {
+      color: var(--inverted-primary-color);
+      background-color: var(--inverted-bg-color);
+    }
+  }
+
+  &.readonly {
+    opacity: .5;
+  }
+}
